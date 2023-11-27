@@ -1,0 +1,15 @@
+name: extract
+
+channels:
+- conda-forge
+
+dependencies:
+- python=3.10
+- pip
+- poppler
+- pdf2image
+- flask
+- pytesseract
+- tesseract
+- pathlib
+- Werkzeug~=2.2.2

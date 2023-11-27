@@ -1,0 +1,27 @@
+---
+applications:
+- name: extract_2
+  path: ./
+  memory: 3.5G
+  command: python extract.py
+  disk_quota: 2G
+  random-route: true
+  buildpack: python_buildpack
+  services:
+  - pyuaa
+
+- name: templates
+  random-route: true
+  path: templates
+  memory: 128M
+  env:
+    destinations: >
+      [
+        {
+          "name":"myapp",
+          "url":"https://myapp-grouchy-rabbit.cfapps.eu20.hana.ondemand.com",
+          "forwardAuthToken": true
+        }
+      ]
+  services:
+  - pyuaa
